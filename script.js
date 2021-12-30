@@ -15,6 +15,7 @@ function addTarefa() {
         }
     });
 
+    // essa parte não precisava, mas add a função no enter
     campoInput.addEventListener("keyup", function() {
         if (event.key === "Enter" && campoInput.value.length > 0) {
             let newLi = document.createElement("li");
@@ -27,4 +28,10 @@ function addTarefa() {
 };
 addTarefa();
 
+function itemCinza() {
+    taskList.addEventListener("click", function() {
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    });
+};
+itemCinza();
 
