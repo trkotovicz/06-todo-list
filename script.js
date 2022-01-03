@@ -82,4 +82,14 @@ function apagaLista() {
     taskList.innerHTML = "";
 };
 
+// 11
+let removerFinalizados = document.getElementById("remover-finalizados");
+removerFinalizados.addEventListener("click", apagaCompletos);
 
+function apagaCompletos() {
+    let completedTasks = document.querySelectorAll(".completed");
+    
+    for (let index = 0; index < completedTasks.length; index += 1) {
+        completedTasks[index].parentElement.removeChild(completedTasks[index]);
+    };
+};
