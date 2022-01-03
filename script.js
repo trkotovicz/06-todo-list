@@ -40,6 +40,7 @@ function selected() {
     };
     novaSelecao.classList.add("selected");
 };
+
 /*
 // função anterior que só pinta mas não muda classe e pinta quantos itens clicar
 function itemCinza() {
@@ -51,8 +52,26 @@ itemCinza();
 */
 
 // 9
-// clicar duas vezes no item faz com que ele seja riscado
+taskList.addEventListener("dblclick", completed);
 
+function completed(event) {
+    let completed = event.target;
+    completed.classList.toggle("completed"); 
+    // !!!!! NÃO ENTENDI DIREITO COMO FUNCIONA O TOGGLE !!!!!! 
+};
+
+// !!!!! NÃO ENTENDI TB PQ ESSA FUNÇÃO SÓ PERMITE MARCAR UMA POR VEZ !!!!!!
+
+// function completed() {
+//     let completed = document.querySelector(".completed");
+//     let dblclick = event.target;
+
+//     if (completed) {
+//         completed.classList.remove("completed");
+//     } else {
+//     dblclick.classList.add("completed");
+//     };
+// };
 
 
 // 10
