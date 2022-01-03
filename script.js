@@ -108,11 +108,8 @@ removerSelecionado.addEventListener("click", removeSelected);
 function removeSelected() {
     let selected = document.querySelectorAll(".selected");
     
+    // for para percorrer os itens selecionados, chamar o pai e excluir o filho (no caso, o item selecionado em si)
     for (let index = 0; index < selected.length; index += 1) {
         selected[index].parentElement.removeChild(selected[index]);
     };
-
-    // if (selected) {
-    //     selected.classList.remove("selected");
-    // };
 };
