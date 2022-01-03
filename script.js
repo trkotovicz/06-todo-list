@@ -41,38 +41,34 @@ function selected() {
     novaSelecao.classList.add("selected");
 };
 
-/*
-// função anterior que só pinta mas não muda classe e pinta quantos itens clicar
-function itemCinza() {
-    taskList.addEventListener("click", function() {
-        event.target.classList.add("selected");
-    });
-};
-itemCinza();
-*/
+// função anterior que só pinta mas não muda classe e pinta todos itens que clicar
+// function itemCinza() {
+//     taskList.addEventListener("click", function() {
+//         event.target.classList.add("selected");
+//     });
+// };
+// itemCinza();
 
 // 9
 taskList.addEventListener("dblclick", completed);
 
+function completed(dblclick) {
+    let completed = dblclick.target;
+
+    if (completed.classList.contains("completed")) {
+        completed.classList.remove("completed");
+    } else {
+        completed.classList.add("completed");
+    };
+};
+
+/* // excluí a função pq não entendi como funciona o toggle
 function completed(event) {
     let completed = event.target;
     completed.classList.toggle("completed"); 
     // !!!!! NÃO ENTENDI DIREITO COMO FUNCIONA O TOGGLE !!!!!! 
 };
-
-// !!!!! NÃO ENTENDI TB PQ ESSA FUNÇÃO SÓ PERMITE MARCAR UMA POR VEZ !!!!!!
-
-// function completed() {
-//     let completed = document.querySelector(".completed");
-//     let dblclick = event.target;
-
-//     if (completed) {
-//         completed.classList.remove("completed");
-//     } else {
-//     dblclick.classList.add("completed");
-//     };
-// };
-
+*/
 
 // 10
 let apagaTudo = document.getElementById("apaga-tudo");
@@ -89,7 +85,34 @@ removerFinalizados.addEventListener("click", apagaCompletos);
 function apagaCompletos() {
     let completedTasks = document.querySelectorAll(".completed");
     
+    // for para percorrer os itens completos, chamar o pai e excluir o filho (da vez na posição index)
     for (let index = 0; index < completedTasks.length; index += 1) {
         completedTasks[index].parentElement.removeChild(completedTasks[index]);
     };
+};
+
+//Bônus
+// 12
+// salva a tarefa no localStorage mas não carrega as info quando a página é recarregada
+let salvarTarefas = document.getElementById("salvar-tarefas");
+salvarTarefas.addEventListener("click", saveTasks);
+
+function saveTasks() {
+    localStorage.setItem("tarefas", taskList.innerHTML);
+};
+
+// 14
+let removerSelecionado = document.getElementById("remover-selecionado");
+removerSelecionado.addEventListener("click", removeSelected);
+
+function removeSelected() {
+    let selected = document.querySelectorAll(".selected");
+    
+    for (let index = 0; index < selected.length; index += 1) {
+        selected[index].parentElement.removeChild(selected[index]);
+    };
+
+    // if (selected) {
+    //     selected.classList.remove("selected");
+    // };
 };
