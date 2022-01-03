@@ -28,17 +28,27 @@ function addTarefa() {
 };
 addTarefa();
 
-// 7
+// 7 e 8
+taskList.addEventListener("click", selected);
+
+function selected() {
+    let selected = document.querySelector(".selected");
+    let novaSelecao = event.target;
+    
+    if (selected) {
+        selected.classList.remove("selected");
+    };
+    novaSelecao.classList.add("selected");
+};
+/*
+// função anterior que só pinta mas não muda classe e pinta quantos itens clicar
 function itemCinza() {
     taskList.addEventListener("click", function() {
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+        event.target.classList.add("selected");
     });
 };
 itemCinza();
-
-// 8
-// só pode selecionar um elemento por vez
-
+*/
 
 // 9
 // clicar duas vezes no item faz com que ele seja riscado
