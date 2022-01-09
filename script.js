@@ -2,6 +2,8 @@ let campoInput = document.getElementById("texto-tarefa");
 let inputButton = document.getElementById("criar-tarefa");
 let taskList = document.getElementById("lista-tarefas");
 
+window.onload = loadTasks;
+
 // 5 e 6
 function addTarefa() {
     
@@ -93,13 +95,20 @@ function apagaCompletos() {
 
 //Bônus
 // 12
-// salva a tarefa no localStorage mas não carrega as info quando a página é recarregada
 let salvarTarefas = document.getElementById("salvar-tarefas");
 salvarTarefas.addEventListener("click", saveTasks);
 
 function saveTasks() {
     localStorage.setItem("tarefas", taskList.innerHTML);
 };
+
+// chama a função no onload da pagina
+function loadTasks() {
+    let savedTasks = localStorage.getItem("tarefas");
+    taskList.innerHTML = savedTasks;
+};
+
+
 
 // 14
 let removerSelecionado = document.getElementById("remover-selecionado");
