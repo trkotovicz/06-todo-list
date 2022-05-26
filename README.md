@@ -1,4 +1,4 @@
-#Bem vindo ao repositório do projeto To Do List!
+# Bem vindo ao repositório do projeto To Do List!
 
 Esse projeto foi desenvolvido no curso de Desenvolvimento Web na Trybe.
 Foi utilizado somente HTML, CSS e JS puro.
